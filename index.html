@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="teste">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Formulário</title>
+  </head>
+  <body>
+    <h1>Formulário Html</h1>
+    <form id="frm" method="post" action="index.html">
+      <h3>Input Text</h3>
+      <label for="idNome">Digite seu Nome:</label>
+      <input type="text" id="idNome" name="idNome" placeholder="Matheus Games Underline"/>
+
+      <h3>Input Button</h3>
+      <label for="botao">Clicke para ganhar moedas:</label>
+      <input type="button" id="botao" name="botao" value="Sim" onclick="ganharMoedas()"/>
+      <input type="button" id="botao2" name="bota2" value="Nao" onclick="perderMoedas()"/>
+   
+      <h3>Input Color</h3>
+      <label for="cor">Set a Cor de Fundo:</label>
+      <input type="color" name="cor" id="cor" onchange="setFundo(this.value)">
+      <span id="texto_corfundo">#000000</span>
+
+      <h3>Input File</h3>
+      <label for="file">Adicione uma Imagem:</label>
+      <input type="file" name="file" id="file">
+
+      <h3>Input Password</h3>
+      <label for="senha1">Digite sua senha:</label>
+      <input type="password" name="senha1" id="senha1">
+      <input type="button" id="bmostrar" name="bmostrar" value="Mostrar" onclick="mostrar(document.getElementById('senha1'),this)"/>
+      <br><br>
+      <label for="senha2">Repita sua senha:</label>
+      <input type="password" name="senha2" id="senha2">
+      <input type="button" id="bmostrar" name="bmostrar" value="Mostrar" onclick="mostrar(document.getElementById('senha2'),this)"/>
+      <br><br>
+      <input type="button" id="bvalidar" name="bvalidar" value="Validar Senhas" onclick="validar(document.getElementById('senha1'),document.getElementById('senha2'))"/>
+
+
+      <h3>Input Radio</h3>
+      <label for="rFimose">Você tem Fimose?</label>
+      <br>
+      <label for="rsim">Sim</label>
+      <input type="radio" name="rFimose" id="rsim" onchange="fim(document.getElementById('rsim'), this)">
+      <label for="rnao">Não</label>
+      <input type="radio" name="rFimose" id="rnao" onchange="fim(document.getElementById('rnao'), this)">
+      
+
+
+      <h3>Input CheckBox</h3>
+      <label for="check1">Voce quer ativar o que:</label>
+      <input type="checkbox" name="check1" id="check1">
+      <label for="check1"> Hack </label>
+      <input type="checkbox" name="check2" id="check2">
+      <label for="check2"> Sexo </label>
+      <input type="checkbox" name="check3" id="check3">
+      <label for="check3"> Drogas </label>
+      <input type="checkbox" name="check4" id="check4">
+      <label for="check4"> Prostitutas </label>
+
+
+    </form>
+
+    <script>
+      function ganharMoedas() {
+        var nome = document.getElementById("idNome").value;
+        alert("Ganhando moedinhas: " + nome);
+      }
+
+      function perderMoedas() {
+        var nome = document.getElementById("idNome").value;
+        alert("Perdendo moedinhas: " + nome);
+      }
+
+      function mostrar(senha, botao){
+        if(senha.type == "text"){
+          senha.type = "password";
+          botao.value = "Mostrar";
+        }
+        else{
+          senha.type = "text";
+          botao.value = "Esconder";
+        }
+      }
+
+      function fim(b1, b2){
+        b1.checked = false;
+        b2.checked = true;
+      }
+
+      function validar(senha1, senha2){
+        if(senha1.value == senha2.value){
+        }
+        else{
+          alert("Senhas Imcompatíveis!")
+        }
+      }
+
+      function setFundo(cor){
+        document.getElementById("texto_corfundo").innerHTML=cor;
+        //document.getElementById("texto_corfundo").style.color=cor;
+        let element = document.getElementById("teste");
+        element.style.backgroundColor=cor;
+      }
+    </script>
+  </body>
+</html>
