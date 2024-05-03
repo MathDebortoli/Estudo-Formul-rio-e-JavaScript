@@ -43,22 +43,18 @@
       <label for="rFimose">Você tem Fimose?</label>
       <br>
       <label for="rsim">Sim</label>
-      <input type="radio" name="rFimose" id="rsim" onchange="fim(document.getElementById('rsim'), this)">
+      <input type="radio" name="rFimose" id="rsim" onchange="fim('rsim', this)">
       <label for="rnao">Não</label>
-      <input type="radio" name="rFimose" id="rnao" onchange="fim(document.getElementById('rnao'), this)">
+      <input type="radio" name="rFimose" id="rnao" onchange="fim('rnao', this)">
       
 
 
       <h3>Input CheckBox</h3>
-      <label for="check1">Voce quer ativar o que:</label>
-      <input type="checkbox" name="check1" id="check1">
-      <label for="check1"> Hack </label>
-      <input type="checkbox" name="check2" id="check2">
-      <label for="check2"> Sexo </label>
-      <input type="checkbox" name="check3" id="check3">
-      <label for="check3"> Drogas </label>
-      <input type="checkbox" name="check4" id="check4">
-      <label for="check4"> Prostitutas </label>
+      <label for="check1">Voce quer ativar o que:</label> <br>
+      <input type="checkbox" name="check1" id="check1"> Elevação <br>
+      <input type="checkbox" name="check2" id="check2"> Cartas <br>
+      <input type="checkbox" name="check3" id="check3"> Amor <br>
+      <input type="checkbox" name="check4" id="check4"> Sorte <br>
 
 
     </form>
@@ -97,7 +93,7 @@
           alert("Senhas Incompatíveis!")
         }
       }
-      
+
       function setFundo(cor){
         document.getElementById("texto_corfundo").innerHTML=cor;
         //document.getElementById("texto_corfundo").style.color=cor;
