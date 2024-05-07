@@ -48,13 +48,34 @@
       <input type="radio" name="rFimose" id="rnao" onchange="fim('rnao', this)">
       
 
-
       <h3>Input CheckBox</h3>
       <label for="check1">Voce quer ativar o que:</label> <br>
       <input type="checkbox" name="check1" id="check1"> Elevação <br>
       <input type="checkbox" name="check2" id="check2"> Cartas <br>
       <input type="checkbox" name="check3" id="check3"> Amor <br>
       <input type="checkbox" name="check4" id="check4"> Sorte <br>
+      <input type="checkbox" name="check5" id="check5" onclick="exibir(this,'outro')">
+      <label for="check5">Outro: </label>
+      <input type="text" name="outro" id="outro" disabled>
+
+
+      <h3>Input Range</h3>
+      <label for="range">Volume de Água</label>
+      <br>
+      <input type="range" name="range" id="range" step="0.5" oninput="exibirRange(this.value)">
+      <span id="textvalue"> 50</span>
+
+      <h4>Select</h4>
+      <label for="estado">Estado:</label>
+      <select name="estado" id="estado">
+      <option value="Ac">Acre</option>
+      <option value="CE">Ceará</option>
+      <option value="RN">Rio Grande do Norte</option>
+      </select>
+
+      <h4>Text Area</h4>
+      <label for="texta">Fale sobre Voce:</label>
+      <textarea name="texta" id="texta" cols="30" rows="10"></textarea>
 
 
     </form>
@@ -94,12 +115,30 @@
         }
       }
 
+      function exibir(check, text){
+        var campo_texto = document.getElementById(text)
+
+        if(check.checked){
+          campo_texto.disabled = false;
+          campo_texto.focus();
+        }
+        else{
+          campo_texto.disabled = true;
+          campo_texto.value = '';
+        }
+      }
+
       function setFundo(cor){
         document.getElementById("texto_corfundo").innerHTML=cor;
         //document.getElementById("texto_corfundo").style.color=cor;
         let element = document.getElementById("teste");
         element.style.backgroundColor=cor;
       }
+
+      function exibirRange(valor){
+        document.getElementById("textvalue").innerHTML= valor;
+      }
+
     </script>
   </body>
 </html>
